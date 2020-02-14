@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script>
+    function check()
+    {
+        var result=confirm('Do you really wish to copy this post?');
+        if(result==true)
+           return true;
+        else
+            return false;
+    }
+  </script>
+	<title>home</title>
+</head>
+<body>
+	<!-- Navbar content -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">WELCOME {{username}}</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#"></a>
+            <a class="dropdown-item" href="#"></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#"></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+        </li>
+	  </ul>
+	  <form class="form-inline my-2 my-lg-0" action="/posts/">
+        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+        <button class="btn btn-info my-2 my-sm-0" type="submit">MY POSTS</button>
+      </form>-
+	  <!-- <form class="form-inline my-2 my-lg-0" action="/users/">
+       
+        <button class="btn btn-info my-2 my-sm-0" type="submit">USERS</button>
+      </form>- -->
+      <form class="form-inline my-2 my-lg-0" action="/logout/">
+        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+        <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+      </form>
+    </div>
+  </nav>
+	<div class="jumbotron">
+<h1>Hello <u>{{username}},</u></h1> Here are today's top posts..
+
+<hr>
+<!-- {{data}} -->
+{% for d in opost %}
+<div class="card">
+  <div class="card-header" id="headingOne {{d.head}}">
+    <h2 class="mb-0">
+      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2>{{d.head}}</h2> 
+        <!-- <a class="btn btn-outline-info" href="/deletepost/{{d.id}}" onclick="return check()"> save post</a> -->
+      </button>
+    </h2>
+  </div>
+
+  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div class="card-body">
+      <b>{{d.post}}</b> <br><hr>
+      {{d.date}}
+      <a style="float: right; margin-bottom: 5px;" class="btn btn-outline-info" href="/savepost/{{d.id}}" onclick="return check()">save post</a>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+	</div>
+<hr>
+<a class="btn btn-outline-danger" href="/logout/">Logout</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

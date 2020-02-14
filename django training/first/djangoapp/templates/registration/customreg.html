@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		input{
+			.form-control
+		}
+	</style>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% load widget_tweaks %}
+	<title>register</title>
+	{% load widget_tweaks %}
+</head>
+<body>
+	<div class="form-group">
+
+	
+	<div class="jumbotron">
+		<h1>Registration</h1>
+		<hr>
+<form method="POST">
+	{% csrf_token %}
+	{{ user.as_p }}
+	{{ form.as_p }}
+	<hr>
+	<button class="btn btn-danger" type="submit" >Sign Up!</button>
+</form>
+</div>
+</div>
+<div class="jumbotron" style="background-color: aliceblue;">
+<h3>Already an user?</h3>
+<a class="btn btn-outline-success" href="/login/">Click here to Login!</a>
+</div>
+</body>
+</html>

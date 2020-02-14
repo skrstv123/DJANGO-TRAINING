@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+</head>
+<body>
+	
+
+<div class="jumbotron">
+	<h1 style="text-align: center;">Welcome to The Great Blogging Site!!</h1>
+
+	<h3 style="text-align: center;">Login to write and share</h3>
+	<hr><h4>SOME POPULAR POSTS</h4>
+	<div class="accordion" id="accordionExample">
+		{% for d in opost %}
+		<div class="card">
+			<div class="card-header" id="headingOne {{d.head}}">
+			  <h2 class="mb-0">
+				<button style="color: brown;" class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				  <h2 style="text-decoration: none;">{{d.head}}</h2> 
+				  </button>
+			  </h2>
+			</div>
+		
+			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+			  <div class="card-body">
+				<b>{{d.post}}</b> <br><hr>
+				<div style="text-align: right;"> by- <i>{{d.user}} </i></div>
+				<br>
+				<!-- <a style="float: right; margin-bottom: 5px;" class="btn btn-outline-danger" href="/deletepost/{{d.id}}" onclick="return check()"> delete post</a> -->
+				  
+			  </div>
+			</div>
+		  </div>
+		  <br>
+		{% endfor %}
+		</div>
+</div>
+
+{% endblock %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
